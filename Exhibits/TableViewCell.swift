@@ -32,33 +32,33 @@ class TableViewCell: UITableViewCell, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Loader.shared.array[section].imageURL.count
+        return Loader.shared.array[collectionView.tag].imageURL.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
-        cell.title.text = Loader.shared.array[indexPath.row].title
-        
-        let url = Loader.shared.array[indexPath.section].imageURL[indexPath.row]
-        //Loader.shared.download(stringUrl: url)
         
         
-        Alamofire.request(url).responseImage { response in
-                debugPrint(response)
+        
+        
+        cell.title.text = Loader.shared.array[collectionView.tag].title
+        print(cell.title.text)
+        
+        let url = Loader.shared.array[collectionView.tag].imageURL[indexPath.row]
+            Alamofire.request(url).responseImage { response in
+                //debugPrint(response)
                 
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
+                //print(response.request)
+                //print(response.response)
+                //debugPrint(response.result)
                 
                 if let image = response.result.value {
                     
                     cell.image.image = image
                     print("image downloaded: \(image)")
+                    print("url", url)
                 }
             }
         
-        
-        
-        print("ok")
         
         return cell
     }
