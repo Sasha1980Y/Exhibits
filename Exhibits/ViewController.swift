@@ -9,9 +9,19 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, LoaderExhibitsDelegate {
+    func printDelegate() {
+    
+        print("??????????????????")
+    }
+    func downloadExhibit(block: @escaping () -> Void) {
+        loader.downloadExhibit {
+            self.tableView.reloadData()
+        }
+    }
     
     
+    let loader = LoaderExhibits()
     
     
 
@@ -25,10 +35,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         
+        loader.delegate = self
+        loader.start()
         
+        /*
         Loader.shared.downloadExhibit {
             self.tableView.reloadData()
-        }
+        }*/
         // Do any additional setup after loading the view, typically from a nib.
     }
 

@@ -14,8 +14,9 @@
 		7F01D121207F986700165A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F01D11F207F986700165A23 /* LaunchScreen.storyboard */; };
 		7F01D129207F9A1400165A23 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01D128207F9A1400165A23 /* TableViewCell.swift */; };
 		7F01D12B207F9A2800165A23 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01D12A207F9A2800165A23 /* CollectionViewCell.swift */; };
-		7F01D12D207F9F5100165A23 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01D12C207F9F5100165A23 /* Loader.swift */; };
 		7F01D12F207F9F6700165A23 /* Exhibit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F01D12E207F9F6600165A23 /* Exhibit.swift */; };
+		7FE8286A2080618000A1D5C8 /* LoaderExhibits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE828692080618000A1D5C8 /* LoaderExhibits.swift */; };
+		7FE8286C2080687700A1D5C8 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8286B2080687700A1D5C8 /* Loader.swift */; };
 		CEE5456653A7F5F27E8575DC /* Pods_Exhibits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA5079DE3103516EDB242C0 /* Pods_Exhibits.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +32,9 @@
 		7F01D122207F986700165A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F01D128207F9A1400165A23 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7F01D12A207F9A2800165A23 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		7F01D12C207F9F5100165A23 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		7F01D12E207F9F6600165A23 /* Exhibit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exhibit.swift; sourceTree = "<group>"; };
+		7FE828692080618000A1D5C8 /* LoaderExhibits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderExhibits.swift; sourceTree = "<group>"; };
+		7FE8286B2080687700A1D5C8 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BC647774AD452F865C64B714 /* Pods-Exhibits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exhibits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Exhibits/Pods-Exhibits.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				7F01D116207F986500165A23 /* AppDelegate.swift */,
-				7F01D12C207F9F5100165A23 /* Loader.swift */,
+				7FE828692080618000A1D5C8 /* LoaderExhibits.swift */,
+				7FE8286B2080687700A1D5C8 /* Loader.swift */,
 				7F01D12E207F9F6600165A23 /* Exhibit.swift */,
 				7F01D118207F986500165A23 /* ViewController.swift */,
 				7F01D11A207F986500165A23 /* Main.storyboard */,
@@ -214,12 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE8286A2080618000A1D5C8 /* LoaderExhibits.swift in Sources */,
 				7F01D129207F9A1400165A23 /* TableViewCell.swift in Sources */,
 				7F01D119207F986500165A23 /* ViewController.swift in Sources */,
 				7F01D12B207F9A2800165A23 /* CollectionViewCell.swift in Sources */,
 				7F01D12F207F9F6700165A23 /* Exhibit.swift in Sources */,
+				7FE8286C2080687700A1D5C8 /* Loader.swift in Sources */,
 				7F01D117207F986500165A23 /* AppDelegate.swift in Sources */,
-				7F01D12D207F9F5100165A23 /* Loader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +371,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3HY885L7L9;
 				INFOPLIST_FILE = Exhibits/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Alexander-Yakovenko.Exhibits";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -383,7 +390,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3HY885L7L9;
 				INFOPLIST_FILE = Exhibits/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Alexander-Yakovenko.Exhibits";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
