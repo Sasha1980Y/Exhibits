@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 import AlamofireImage
 
-
-
 class Loader: NSObject {
     static let shared = Loader()
     

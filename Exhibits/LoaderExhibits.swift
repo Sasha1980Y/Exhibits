@@ -9,13 +9,22 @@
 import Foundation
 
 protocol LoaderExhibitsDelegate: class {
-    func printDelegate()
     func downloadExhibit(block: @escaping () -> Void)
 }
-extension LoaderExhibits {
-    func printDelegate(){
-        print("/n print delegate /n")
+
+
+class LoaderExhibits {
+    weak var delegate: LoaderExhibitsDelegate?
+    
+    func start() {
+        delegate?.downloadExhibit(block: {
+            print("ok")
+        })
     }
+    
+    
+}
+extension LoaderExhibits {
     
     // download Model
     func downloadExhibit(block: @escaping () -> Void) {
@@ -67,18 +76,6 @@ extension LoaderExhibits {
             }
             }.resume()
         
-    }
-    
-    
-}
-
-class LoaderExhibits {
-    weak var delegate: LoaderExhibitsDelegate?
-    
-    func start() {
-        delegate?.downloadExhibit(block: {
-            print("ok")
-        })
     }
     
     

@@ -10,24 +10,10 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, LoaderExhibitsDelegate {
-    func printDelegate() {
-    
-        print("??????????????????")
-    }
-    func downloadExhibit(block: @escaping () -> Void) {
-        loader.downloadExhibit {
-            self.tableView.reloadData()
-        }
-    }
-    
     
     let loader = LoaderExhibits()
     
-    
-
     @IBOutlet weak var tableView: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,21 +24,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loader.delegate = self
         loader.start()
         
-        /*
-        Loader.shared.downloadExhibit {
-            self.tableView.reloadData()
-        }*/
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func downloadExhibit(block: @escaping () -> Void) {
+        loader.downloadExhibit {
+            self.tableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         for item in Loader.shared.array {
             print("tableview")
@@ -64,6 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         return Loader.shared.array.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableViewCell
         
@@ -71,8 +55,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.collectionView.dataSource = self
         cell.collectionView.tag = indexPath.row
         cell.collectionView.reloadData()
-        
-        
         
         return cell
     }
@@ -83,9 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
-        
-        
-        
         
         cell.title.text = Loader.shared.array[collectionView.tag].title
         print(cell.title.text)
@@ -105,11 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("url", url)
             }
         }
-        
-        
         return cell
     }
-
-
 }
 

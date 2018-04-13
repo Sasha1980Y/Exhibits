@@ -14,7 +14,6 @@ class TableViewCell: UITableViewCell, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,7 +23,6 @@ class TableViewCell: UITableViewCell, UICollectionViewDataSource {
         collectionView.dataSource = self
     }
     
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -36,9 +34,6 @@ class TableViewCell: UITableViewCell, UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
-        
-        
-        
         
         cell.title.text = Loader.shared.array[collectionView.tag].title
         print(cell.title.text)
@@ -58,10 +53,6 @@ class TableViewCell: UITableViewCell, UICollectionViewDataSource {
                     print("url", url)
                 }
             }
-        
-        
         return cell
     }
-    
-
 }
